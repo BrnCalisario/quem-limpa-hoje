@@ -17,7 +17,7 @@ h1 {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: left; */
-    width: 20%;
+    width: 30vw;
     height: 100%;
     position: fixed;
     z-index: 1;
@@ -45,10 +45,17 @@ h1 {
 }
 
 #cleaners {
-    position: fixed;
+    text-align: center;
+    margin-left: 30vw;
+    margin-top: 40vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    /* position: fixed;
     top: 40vh;
     left: 55vw;
     font-size: 30px;
-    text-align: center;
+    text-align: center; */
 }
 

@@ -3,7 +3,6 @@ function isWeekDay(date) {
 }
 
 function findMonday(date) {
-
     var d = new Date(date)
 
     if (d.getDay() == 0) {
@@ -21,16 +20,12 @@ function findMonday(date) {
 function formatDayNMonth(date) {
     var ymd = date.toISOString().split("T")[0]
     var splited = ymd.split("-")
-
     return splited[2] + "/" + splited[1]
-
 }
 
 function setTitle() {
     var title = $("#week-title")
-
     var monday = findMonday(new Date())
-
     title.text(title.text() + " " + formatDayNMonth(monday))
 }
 
@@ -51,9 +46,8 @@ function focusActualDay() {
 function getLimpadores(date) {
     var hoje = date || new Date()
     hoje.setHours(0, 0, 0, 0)
-    
-    var dupla = listaDias.find(d => d.day.toISOString() === hoje.toISOString())
 
+    var dupla = listaDias.find(d => d.day.toISOString() === hoje.toISOString())
 
     $("#cleaners").empty()
     $("#cleaners").append("Quem limpa:\n" + dupla.duo)
