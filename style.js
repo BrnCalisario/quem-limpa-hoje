@@ -48,12 +48,15 @@ function focusActualDay() {
     })
 }
 
-function getLimpadores() {
-    var hoje = new Date()
+function getLimpadores(date) {
+    var hoje = date || new Date()
     hoje.setHours(0, 0, 0, 0)
-
+    
     var dupla = listaDias.find(d => d.day.toISOString() === hoje.toISOString())
-    $("#cleaners").append(dupla.duo)
+
+
+    $("#cleaners").empty()
+    $("#cleaners").append("Quem limpa:\n" + dupla.duo)
 }
 
 function clearBtns() {
@@ -67,6 +70,9 @@ function buttonFn() {
         b.onclick = () => {
             clearBtns()
             b.style.backgroundColor = "#cff6fc"
+            let monday = findMonday(new Date())
+            monday.setDate(monday.getDate() + i)
+            getLimpadores(monday)
         }
     })
 }
@@ -76,7 +82,7 @@ function readyFn() {
     focusActualDay()
     setTitle()
     buttonFn()
-    getLimpadores()
+    getLimpadores(new Date())
 }
 
 $(document).ready(readyFn)

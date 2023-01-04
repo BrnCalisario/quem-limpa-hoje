@@ -1,7 +1,7 @@
 var duplas = [
     "Manu e Gabi",
     "Maitê e Bruno",
-    "Fortunado e Felipe",
+    "Fortunato e Felipe",
     "Freire e Leo",
     "Peter e Nicolas",
     "Thiago e Iago",
