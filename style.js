@@ -1,19 +1,23 @@
-function isWeekDay(date) {
-    return date.getDay() > 0 && date.getDay() < 6
+var isWeekDay = (date) => date.getDay() > 0 && date.getDay < 6
+
+var shiftWeek = (date, shift) => {
+    let nextMonday = findMonday(date)
+    nextMonday.setDate(nextMonday.getDate() + shift)
+    return nextMonday
 }
 
 function findMonday(date) {
     var d = new Date(date)
-
+    
     if (d.getDay() == 0) {
         d.setDate(d.getDate() + 1)
         return d
     }
-
+    
     while (d.getDay() > 1) {
         d.setDate(d.getDate() - 1)
     }
-
+    
     return d
 }
 
@@ -23,14 +27,15 @@ function formatDayNMonth(date) {
     return splited[2] + "/" + splited[1]
 }
 
-function setTitle() {
-    var title = $("#week-title")
-    var monday = findMonday(new Date())
-    title.text(title.text() + " " + formatDayNMonth(monday))
+function setTitle(date) {
+    var title = $("#week-text")
+    $("#week-text").val(date.toISOString().split("T")[0])
+    var monday = findMonday(date)
+    title.text("Semana " + formatDayNMonth(monday))
 }
 
-function focusActualDay() {
-    let hoje = new Date()
+function focusActualDay(date) {
+    let hoje = date || new Date()
 
     if (!isWeekDay(hoje)) {
         return
@@ -49,8 +54,9 @@ function getLimpadores(date) {
 
     var dupla = listaDias.find(d => d.day.toISOString() === hoje.toISOString())
 
+
     $("#cleaners").empty()
-    $("#cleaners").append("Quem limpa:\n" + dupla.duo)
+    $("#cleaners").append(dupla.duo)
 }
 
 function clearBtns() {
@@ -64,19 +70,42 @@ function buttonFn() {
         b.onclick = () => {
             clearBtns()
             b.style.backgroundColor = "#cff6fc"
-            let monday = findMonday(new Date())
+            let monday = findMonday(new Date($("#week-title").val()))
             monday.setDate(monday.getDate() + i)
             getLimpadores(monday)
         }
     })
 }
 
+function arrowFn() {
+    $(".right").click(function() {
+        let nextWeek = shiftWeek($("#week-title").val(), 7)
+        $("#week-title").val(findMonday(nextWeek))
+        refresh(nextWeek)
+    })
+    $(".left").click(function() {
+        let pastWeek = shiftWeek($("#week-title").val(), -7)
+        $("#week-title").val(findMonday(pastWeek))
+        refresh(pastWeek)
+    })
+}
+
+function refresh(date) {
+    clearBtns()
+    buttonFn()
+    setTitle(date)
+    focusActualDay(date)
+    getLimpadores(date)
+}
 
 function readyFn() {
+    let hoje = new Date()
+    $("#week-title").val(findMonday(hoje))
     focusActualDay()
-    setTitle()
+    setTitle(hoje)
     buttonFn()
-    getLimpadores(new Date())
+    arrowFn()
+    getLimpadores(hoje)
 }
 
 $(document).ready(readyFn)

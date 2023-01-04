@@ -23,7 +23,7 @@ function isWeekDay(date) {
 
 
 var start = new Date("01/03/2023")
-var end = new Date("01/31/2023")
+var end = new Date("01/31/2074")
 
 var listaDias = []
 
@@ -38,5 +38,3 @@ while (loop <= end) {
     }
     loop.setDate(loop.getDate() + 1)
 }
-
-// console.log(listaDias)

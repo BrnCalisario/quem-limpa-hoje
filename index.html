@@ -11,14 +11,22 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="style.js"></script>
     <script src="index.js"></script>
-    
+
 </head>
 
 <body>
     <div id="dias">
-        <h1 id="week-title">Semana</h1>
+        <div id="week-title">
+            <i class="left fas fa-arrow-left"></i>
+            <h1 id="week-text">Semana</h1>
+            <i class="right fas fa-arrow-right"></i>
+        </div>
         <div class="dia">Segunda-feira</div>
         <div class="dia">Terça-feira</div>
         <div class="dia">Quarta-feira</div>
@@ -27,9 +35,11 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Bosch-logo.svg">
     </div>
 
-    
-    <div id="cleaners">
-        <!-- <p>Quem limpa:</p> -->
+
+    <div id="content">
+        <h3>Quem limpa:</h3>
+        <div id="cleaners">
+        </div>
     </div>
 
 </body>
