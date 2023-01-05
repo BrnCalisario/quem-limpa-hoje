@@ -27,8 +27,13 @@ h1 {
     font-size: 1.5rem;
     padding: 50px 20px;
     border: 1px solid lightblue;
-    display: block;
+    display: flex;
     transition: 0.3s;
+}
+
+.dia p {
+    margin: 0;
+    display: inline-block;
 }
 
 .dia:hover {

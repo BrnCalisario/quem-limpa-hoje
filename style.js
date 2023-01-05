@@ -8,16 +8,16 @@ var shiftWeek = (date, shift) => {
 
 function findMonday(date) {
     var d = new Date(date)
-    
+
     if (d.getDay() == 0) {
         d.setDate(d.getDate() + 1)
         return d
     }
-    
+
     while (d.getDay() > 1) {
         d.setDate(d.getDate() - 1)
     }
-    
+
     return d
 }
 
@@ -54,9 +54,7 @@ function getLimpadores(date) {
 
     var dupla = listaDias.find(d => d.day.toISOString() === hoje.toISOString())
 
-
-    $("#cleaners").empty()
-    $("#cleaners").append(dupla.duo)
+    $("#cleaners").text(dupla.duo)
 }
 
 function clearBtns() {
@@ -78,12 +76,12 @@ function buttonFn() {
 }
 
 function arrowFn() {
-    $(".right").click(function() {
+    $(".right").click(function () {
         let nextWeek = shiftWeek($("#week-title").val(), 7)
         $("#week-title").val(findMonday(nextWeek))
         refresh(nextWeek)
     })
-    $(".left").click(function() {
+    $(".left").click(function () {
         let pastWeek = shiftWeek($("#week-title").val(), -7)
         $("#week-title").val(findMonday(pastWeek))
         refresh(pastWeek)
@@ -98,14 +96,14 @@ function refresh(date) {
     getLimpadores(date)
 }
 
-function readyFn() {
+
+
+$(document).ready(() => {
     let hoje = new Date()
     $("#week-title").val(findMonday(hoje))
-    focusActualDay()
-    setTitle(hoje)
-    buttonFn()
+    refresh(hoje)
     arrowFn()
-    getLimpadores(hoje)
-}
 
-$(document).ready(readyFn)
+})
+
+
