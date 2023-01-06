@@ -78,3 +78,17 @@ h1 {
 }
 
 
+@media only screen and (max-width: 700px) {
+    #dias {
+        width: 50vw;
+    }
+
+    #content {
+        margin-left: 51vw;
+        font-size: 1.2rem;
+    }
+
+    .arrow {
+        display: none;
+    }
+}
