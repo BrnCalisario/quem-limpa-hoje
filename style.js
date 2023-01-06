@@ -79,6 +79,7 @@ function arrowFn() {
     $(".right").click(function () {
         let nextWeek = shiftWeek($("#week-title").val(), 7)
         $("#week-title").val(findMonday(nextWeek))
+        $("#week-text").addClass("move-left")
         refresh(nextWeek)
     })
     $(".left").click(function () {
@@ -88,15 +89,60 @@ function arrowFn() {
     })
 }
 
+
+function displayDays() {
+    var segunda = new Date($("#week-title").val())
+
+    $(".num-dia").remove()
+    $(".dia").each(function () {
+        var $pDia = $('<span class="num-dia"></span>')
+        var dia = segunda.getDate()
+
+        if (dia <= 9)
+            dia = "0" + dia
+
+        segunda.setDate(segunda.getDate() + 1)
+
+        $pDia.text(dia)
+        $(this).append($pDia)
+    })
+}
+
 function refresh(date) {
     clearBtns()
     buttonFn()
     setTitle(date)
     focusActualDay(date)
     getLimpadores(date)
+    displayDays()
+
+    let title = document.getElementById("week-text")
+    title.addEventListener("animationend", listener, false)
+    title.addEventListener("animationstart", listener, false)
 }
 
+function listener(event) {
+    let title = document.getElementById("week-text")
+    
+    switch (event.type) {
+        case "animationstart":
+            console.log("Eae")
+            next.classList.remove("some")
+            next.classList.add("come-right")
+            next.id = "week-text"
 
+            break;
+        case "animationend":
+
+            title.classList.add("some")
+            title.id = "next"
+
+            break;
+        case "animationiteration":
+
+            break;
+    }
+}
 
 $(document).ready(() => {
     let hoje = new Date()

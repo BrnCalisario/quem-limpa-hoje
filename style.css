@@ -29,6 +29,9 @@ h1 {
     border: 1px solid lightblue;
     display: flex;
     transition: 0.3s;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
 }
 
 .dia p {
@@ -41,14 +44,20 @@ h1 {
 }
 
 #dias img {
-    margin: 5vh 4%;
-    width: 90%;
+    display: block;
+    margin: 15px auto;
+    width: 50%;
+}
+
+.num-dia {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 2.5rem;
 }
 
 #content {
     text-align: center;
     margin-left: 30vw;
-    margin-top: 35vh; 
+    margin-top: 35vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,12 +78,32 @@ h1 {
 #week-title i {
     font-size: 2rem;
     transition: 0.2s;
-    color: lightgray
+    color: rgb(163, 163, 163)
 }
 
 #week-title i:hover {
     color: black;
     transform: scale(1.2);
+    cursor: pointer;
+}
+
+#week-text {
+    position: relative;
+}
+
+
+.move-left {
+    animation: slidein 0.9s;
+}
+
+.come-right {
+    animation: comeslide 0.9s;
+}
+
+#creditos {
+    text-align: center;
+    display: block;
+    margin: 8px auto;
 }
 
 
@@ -88,7 +117,40 @@ h1 {
         font-size: 1.2rem;
     }
 
+    .num-dia {
+        display: none;
+    }
+
     .arrow {
         display: none;
+    }
+}
+
+.some {
+    display: none;
+}
+
+
+@keyframes slidein {
+    from {
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    to {
+        margin-left: -200%;
+        width: 100%;
+    }
+}
+
+@keyframes comeslide {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
     }
 }

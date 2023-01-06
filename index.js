@@ -3,7 +3,7 @@ var duplas = [
     "Maitê e Bruno",
     "Freire e Leo",
     "Fortunato e Felipe",
-    "Peter e Nickola",
+    "Peter e Nycollas",
     "Thiago e Iago",
     "Carioca e Kaiky",
     "André e Hemerson",
@@ -23,7 +23,7 @@ function isWeekDay(date) {
 
 
 var start = new Date("01/03/2023")
-var end = new Date("01/31/2074")
+var end = new Date("12/31/2023")
 
 var listaDias = []
 
