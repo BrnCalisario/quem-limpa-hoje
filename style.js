@@ -126,20 +126,10 @@ function listener(event) {
     
     switch (event.type) {
         case "animationstart":
-            console.log("Eae")
-            next.classList.remove("some")
-            next.classList.add("come-right")
-            next.id = "week-text"
-
             break;
         case "animationend":
-
-            title.classList.add("some")
-            title.id = "next"
-
             break;
         case "animationiteration":
-
             break;
     }
 }

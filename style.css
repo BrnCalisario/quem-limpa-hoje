@@ -92,13 +92,13 @@ h1 {
 }
 
 
-.move-left {
+/* .move-left {
     animation: slidein 0.9s;
 }
 
 .come-right {
     animation: comeslide 0.9s;
-}
+} */
 
 #creditos {
     text-align: center;
@@ -126,12 +126,9 @@ h1 {
     }
 }
 
-.some {
-    display: none;
-}
 
 
-@keyframes slidein {
+/* @keyframes slidein {
     from {
         margin-left: 0%;
         width: 100%;
@@ -153,4 +150,4 @@ h1 {
         margin-left: 0%;
         width: 100%;
     }
-}
+} */
