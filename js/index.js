@@ -1,8 +1,8 @@
 var duplas = [
     "Manu e Gabi",
     "Maitê e Bruno",
-    "Freire e Leo",
     "Fortunato e Felipe",
+    "Freire e Leo",
     "Peter e Nycollas",
     "Thiago e Iago",
     "Carioca e Kaiky",
@@ -22,13 +22,13 @@ function isWeekDay(date) {
 }
 
 
-var start = new Date("01/03/2023")
-var end = new Date("12/31/2023")
+var startDate = new Date("01/03/2023")
+var endDate = new Date("12/31/2023")
 
 var listaDias = []
 
-var loop = new Date(start)
-while (loop <= end) {
+var loop = new Date(startDate)
+while (loop <= endDate) {
 
     if (isWeekDay(loop)) {
         var dupla = duplas.shift()

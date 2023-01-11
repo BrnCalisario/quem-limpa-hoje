@@ -77,12 +77,21 @@ function buttonFn() {
 
 function arrowFn() {
     $(".right").click(function () {
+        
         let nextWeek = shiftWeek($("#week-title").val(), 7)
         $("#week-title").val(findMonday(nextWeek))
         $("#week-text").addClass("move-left")
         refresh(nextWeek)
     })
     $(".left").click(function () {
+
+        var md = findMonday($("#week-title").val())
+        if(shiftWeek(md, -7) < startDate) 
+            return
+        
+        if(shiftWeek(md, 7) > endDate)
+            return
+
         let pastWeek = shiftWeek($("#week-title").val(), -7)
         $("#week-title").val(findMonday(pastWeek))
         refresh(pastWeek)
@@ -115,6 +124,19 @@ function refresh(date) {
     focusActualDay(date)
     getLimpadores(date)
     displayDays()
+
+    
+    if(shiftWeek(findMonday(date), -7) < startDate) {
+        $(".left").css("color" ,"lightgray")
+    } else {
+        $(".left").css("color", "gray")
+    }
+
+    if(shiftWeek(findMonday(date), 7) > endDate) {
+        $(".right").css("color" ,"lightgray")
+    } else {
+        $(".right").css("color", "gray")
+    }
 
     let title = document.getElementById("week-text")
     title.addEventListener("animationend", listener, false)
