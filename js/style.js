@@ -82,14 +82,15 @@ function arrowFn() {
         $("#week-title").val(findMonday(nextWeek))
         $("#week-text").addClass("move-left")
         refresh(nextWeek)
+                
+        if(shiftWeek(md, 7) > endDate)
+            return
+
     })
     $(".left").click(function () {
 
         var md = findMonday($("#week-title").val())
         if(shiftWeek(md, -7) < startDate) 
-            return
-        
-        if(shiftWeek(md, 7) > endDate)
             return
 
         let pastWeek = shiftWeek($("#week-title").val(), -7)
