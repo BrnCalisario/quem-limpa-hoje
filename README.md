@@ -6,3 +6,4 @@ TODO
 - Aviso de troca de panos a cada duas semanas
 - Implementar o "minha dupla faltou"
 - Botão para ir para o cardápio
+- Passar projeto para o Node
