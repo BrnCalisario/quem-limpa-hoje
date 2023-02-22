@@ -1,13 +1,13 @@
 var duplas = [
+    "Thiago e Iago",
+    "Carioca e Kaiky",
+    "André e Hemerson",
+    "Ramirez e Murilo",
     "Manu e Gabi",
     "Maitê e Bruno",
     "Fortunato e Felipe",
     "Freire e Leo",
-    "Peter e Nycollas",
-    "Thiago e Iago",
-    "Carioca e Kaiky",
-    "André e Hemerson",
-    "Ramirez e Murilo"
+    "Peter e Nycollas"
 ]
 
 class CleanDay {
